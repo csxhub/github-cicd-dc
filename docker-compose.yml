@@ -1,0 +1,57 @@
+
+version: '3'
+
+#Define services
+services:
+
+  #PostgreSQL Database for the application
+  github-cicd-dc-postgres:
+    #image: "postgres:9.6-alpine"
+    image: "postgres:11.17-alpine"
+    container_name: github-cicd-dc-postgres
+    #Volume mounted for database for the storage
+    volumes:
+      - github-cicd-dc-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432" # Forward the exposed port 5432 on the container to port 5432 on the host machine
+
+    #Environment variable for DB name, user and password
+    environment:
+      - POSTGRES_DB=github-cicd-dc-d
+      - POSTGRES_USER=github-cicd-dc-d
+      - POSTGRES_PASSWORD=github-cicd-dc-d
+
+  #Back-end Spring Boot Application
+  github-cicd-dc-app:
+    #The docker file in scrum-app build the jar and provides the docker image with the following name.
+    build: .
+    ####/github-cicd-dc-app
+    container_name: github-cicd-dc-app
+    restart: always
+    #Environment variables for Spring Boot Application.
+    environment:
+      - DB_SERVER=github-cicd-dc-postgres
+      - POSTGRES_DB=csx-d
+      - POSTGRES_USER=csx-d
+      - POSTGRES_PASSWORD=csx-d
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    links:
+      - github-cicd-dc-postgres
+
+  github-cicd-dc-pgadmin:
+    image: dpage/pgadmin4
+    container_name: github-cicd-dc-pgadmin
+    environment:
+     - PGADMIN_DEFAULT_EMAIL=admin@absa.com
+     - PGADMIN_DEFAULT_PASSWORD=secret
+    ports:
+      - "8086:80"
+    volumes:
+      - github-cicd-dc-pgadmin-data:/var/lib/pgadmin
+
+
+#Volumes for DB data
+volumes:
+  github-cicd-dc-data:
+  github-cicd-dc-pgadmin-data:
