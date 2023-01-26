@@ -17,9 +17,9 @@ services:
 
     #Environment variable for DB name, user and password
     environment:
-      - POSTGRES_DB=github-cicd-dc-d
-      - POSTGRES_USER=github-cicd-dc-d
-      - POSTGRES_PASSWORD=github-cicd-dc-d
+      - POSTGRES_DB=sera
+      - POSTGRES_USER=sera
+      - POSTGRES_PASSWORD=sera
 
   #Back-end Spring Boot Application
   github-cicd-dc-app:
@@ -31,9 +31,9 @@ services:
     #Environment variables for Spring Boot Application.
     environment:
       - DB_SERVER=github-cicd-dc-postgres
-      - POSTGRES_DB=csx-d
-      - POSTGRES_USER=csx-d
-      - POSTGRES_PASSWORD=csx-d
+      - POSTGRES_DB=sera
+      - POSTGRES_USER=sera
+      - POSTGRES_PASSWORD=sera
     ports:
       - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     links:
