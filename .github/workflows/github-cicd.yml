@@ -14,9 +14,14 @@ jobs:
           name: Setup
           uses: actions/checkout@v2
         -
-          name: Logit to Dockerhub
+          name: Login to Dockerhub
           uses: docker/login-action@v1
           with:
             username: johnk777docker
             password: sera777docker
 
+        - name: Push to Dockerhub
+          uses: docker/build-push-action@v1
+          with:
+            push: true
+            tags: github-cicd-dc_github-cicd-dc-app
