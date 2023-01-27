@@ -23,6 +23,6 @@ jobs:
             #password: ${{secrets.DOCKER_PW}}
 
         - name: Push to Dockerhub
-            run: |
-               docker push johnk777docker/github-cicd-dc_github-cicd-dc-app
-            #tags: johnk777docker/github-cicd-dc_github-cicd-dc-app
+          run: |
+             docker push johnk777docker/github-cicd-dc_github-cicd-dc-app
+
