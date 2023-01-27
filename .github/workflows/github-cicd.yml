@@ -24,5 +24,6 @@ jobs:
 
         - name: Push to Dockerhub
           run: |
+             docker tag github-cicd-dc_github-cicd-dc-app johnk777docker/github-cicd-dc_github-cicd-dc-app
              docker push johnk777docker/github-cicd-dc_github-cicd-dc-app
 
