@@ -21,7 +21,8 @@ jobs:
             password: sera777docker
 
         - name: Push to Dockerhub
-          uses: docker/build-push-action@v1
+          uses: docker/push-action@v1
           with:
+            context: .
             push: true
-            tags: github-cicd-dc_github-cicd-dc-app
+            tags: johnk777docker/github-cicd-dc_github-cicd-dc-app
