@@ -17,12 +17,14 @@ jobs:
           name: Login to Dockerhub
           uses: docker/login-action@v1
           with:
-            username: johnk777docker
-            password: sera777docker
+            #username: johnk777docker
+            #password: sera777docker
+            username: ${{secrets.DOCKER_UN}}
+            password: ${{secrets.DOCKER_PW}}
 
-        - name: Push to Dockerhub
-          uses: docker/push-action@v1
-          with:
-            context: .
-            push: true
-            tags: johnk777docker/github-cicd-dc_github-cicd-dc-app
+        #- name: Push to Dockerhub
+         # uses: docker/push-action@v1
+          #with:
+           # context: .
+            #push: true
+            #tags: johnk777docker/github-cicd-dc_github-cicd-dc-app
