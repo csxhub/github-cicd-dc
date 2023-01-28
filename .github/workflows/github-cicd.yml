@@ -23,7 +23,7 @@ jobs:
             echo $VAR1 $VAR2 $VAR3 $VAR4
         -
           name: Second
-          uses: docker-compose ps -a
+          run: docker-compose ps -a
 
 
 
