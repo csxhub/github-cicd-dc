@@ -1,22 +1,24 @@
 name: docker-compose-actions-workflow
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
-  #test:
-   # runs-on: ubuntu-latest
-    #steps:
-     # - uses: actions/checkout@v2
-      #- name: Build the stack
-       # run: docker-compose up
-    deploy:
+    ##
+    setup:
       runs-on: ubuntu-latest
       steps:
-
         -
           name: Setup
           uses: actions/checkout@v2
         -
           name: Build the stack
           run: docker-compose up
+
+    ##
+    deploy:
+      if: ${{ always() }}
+      needs: [setup]
         -
           name: Login to Dockerhub
           uses: docker/login-action@v1
@@ -30,4 +32,6 @@ jobs:
           run: |
              docker tag github-cicd-dc_github-cicd-dc-app johnk777docker/github-cicd-dc_github-cicd-dc-app
              docker push johnk777docker/github-cicd-dc_github-cicd-dc-app
+
+
 
