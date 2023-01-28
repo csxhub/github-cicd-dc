@@ -20,10 +20,10 @@ jobs:
         -
           name: echo
           run: |
-            echo $VAR1 $VAR2 $VAR3 $VAR4
+            echo 'hi there'
         -
           name: Second
-          run: docker-compose ps -a
+          run: docker ps -a
 
 
 
