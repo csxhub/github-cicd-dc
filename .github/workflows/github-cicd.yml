@@ -11,9 +11,17 @@ jobs:
         -
           name: Setup
           uses: actions/checkout@v2
-        -
-          name: Build the stack
-          run: docker-compose up
+    #    -
+     #     name: Build the stack
+      #    run: docker-compose up
+    second:
+      runs-on: ubuntu-latest
+        steps:
+          -
+          name: Second
+          uses: docker-compose ps -a
+          
+
 
 
 
