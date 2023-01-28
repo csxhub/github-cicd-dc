@@ -1,0 +1,17 @@
+name: second-workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: echo
+        run: |
+          echo 'second '
+      -
+        name: second
+        run: docker ps -a

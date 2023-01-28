@@ -1,4 +1,4 @@
-name: docker-compose-actions-workflow
+name: first-workflow
 on:
   push:
     branches:
@@ -11,9 +11,9 @@ jobs:
         -
           name: Setup
           uses: actions/checkout@v2
-    #    -
-     #     name: Build the stack
-      #    run: docker-compose up
+       # -
+        #  name: Build the stack
+         # run: docker-compose up
     #second:
      # runs-on: ubuntu-latest
       #  steps:
@@ -21,9 +21,9 @@ jobs:
           name: echo
           run: |
             echo 'hi there'
-        -
-          name: Second
-          run: docker ps -a
+        #-
+         # name: second
+          #run: docker ps -a
 
 
 
