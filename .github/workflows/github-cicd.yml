@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-    ##
+
     setup:
       runs-on: ubuntu-latest
       steps:
@@ -15,24 +15,7 @@ jobs:
           name: Build the stack
           run: docker-compose up
 
-    ##
-    deploy:
-      runs-on: ubuntu-latest
-      if: ${{ always() }}
-      needs: [setup]
-        -
-          name: Login to Dockerhub
-          uses: docker/login-action@v1
-          with:
-            username: johnk777docker
-            password: sera777docker
-            #username: ${{secrets.DOCKER_UN}}
-            #password: ${{secrets.DOCKER_PW}}
 
-        - name: Push to Dockerhub
-          run: |
-             docker tag github-cicd-dc_github-cicd-dc-app johnk777docker/github-cicd-dc_github-cicd-dc-app
-             docker push johnk777docker/github-cicd-dc_github-cicd-dc-app
 
 
 
