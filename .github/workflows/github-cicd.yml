@@ -14,13 +14,17 @@ jobs:
     #    -
      #     name: Build the stack
       #    run: docker-compose up
-    second:
-      runs-on: ubuntu-latest
-        steps:
-          -
+    #second:
+     # runs-on: ubuntu-latest
+      #  steps:
+        -
+          name: echo
+          run: |
+            echo $VAR1 $VAR2 $VAR3 $VAR4
+        -
           name: Second
           uses: docker-compose ps -a
-          
+
 
 
 
